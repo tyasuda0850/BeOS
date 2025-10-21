@@ -2,6 +2,7 @@ typedef unsigned char uint8_t;
 typedef unsigned int uint32_t;
 typedef uint32_t size_t;
 #include "kernel.h"
+#include "common.h"
 
 extern char __bss[], __bss_end[], __stack_top[];
 
@@ -41,6 +42,8 @@ void kernel_main(void) {
     for (int i = 0; s[i] != '\0'; i++){
         putchar(s[i]);
     }
+    printf("2 + 3 = %d", 2 + 3);
+    printf("\nThis is my Operating System: %s\n", "BeOS");
     for (;;) {
         __asm__ volatile("wfi");
     }
